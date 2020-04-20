@@ -1,0 +1,54 @@
+-----------------------------------------------
+Samuel Tracz
+CIS 4010 Assignment 1
+-----------------------------------------------
+
+-----------------------------------------------
+Python requirements
+-----------------------------------------------
+version: greater than 3.6
+
+pip install boto3
+pip install azure-cosmosdb-table
+pip install azure-storage-blob
+
+I think that's it
+
+-----------------------------------------------
+ENVIRONMENT VARIABLES
+-----------------------------------------------
+aws:
+    credentials go into ~/.aws/credentials
+    default region (us-east-1) goes into ~/.aws/config
+
+azure:
+    set AZURE_STORAGE_CONNECTION_STRING to blob storage account connection string
+    set AZURE_DB_CONNECTION_STRING  to CosmosDB stroage account connection string
+
+
+-----------------------------------------------
+Order of running scripts
+-----------------------------------------------
+aws:
+    s3:
+        python3 createPopS3.py
+        python3 s3interactive.py
+    dynamoDB:
+        python3 createAWSTable.py
+        python3 importAWSData.py
+        python3 queryAWSTable.py
+azure:
+    blob:
+        python3 createPopBlob.py
+        python3 blobInteractive.py
+    cosmosDB:
+        python3 AzureTable.py
+        python3 AzureQuery.py
+
+
+------------------------------------------------
+Notes
+------------------------------------------------
+- You can probably find many ways to break my query
+- Query expected inputs are in square brackets. ex. [search] expects user input "search"
+- 
